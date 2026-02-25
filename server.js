@@ -14,6 +14,10 @@ mongoose.connect(process.env.MONGODB_URI)
                 .then(() => {console.log("Mongodb Connect.")})
                 .catch((err) => {console.error("Connection error", err)});
 
+//connect Redis.
+const {connectRedis} = require('./config/redis.js');
+connectRedis();
+
 //routers 
 const personRoutes = require('./routes/personRoutes');
 
