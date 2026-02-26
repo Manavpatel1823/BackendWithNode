@@ -7,7 +7,7 @@ const postPerson = async (req, res) =>{
         const {name, email} = req.body;
     
         const saved = await Person.create({name, email});
-        res.status(200).json({saved: saved, message: "Data saved successfully!"});
+        res.status(200).json({id: saved._id, saved: saved, message: "Data saved successfully!"});
     }catch(err){
         res.status(500).json({message: "server error.", error: err.message});
     }
